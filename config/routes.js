@@ -5,7 +5,6 @@ module.exports = app => {
     app.route("/admin").post(validateAdmin, app.api.admin.post)
     app.route("/login").post(app.api.adminAuth.signIn)
     app.get("/childBirth/:id", validateAdmin, app.api.childBirth.get)
-    app.get("/stock", app.api.stock.get)
 
     app.route("/address")
         .get(validateAdmin, app.api.address.get)
@@ -66,11 +65,12 @@ module.exports = app => {
         .delete(validateAdmin, app.api.donation.remove)
         .put(validateAdmin, app.api.donation.put)
 
-    app.route("/receivement")
-        .get(validateAdmin, app.api.receivement.get)
-        .post(validateAdmin, app.api.receivement.post)
+    app.route("stock")
+        .get(validateAdmin, app.api.stock.get)
+        .post(validateAdmin, app.api.stock.post)
 
-    app.route("/receivement/:id")
-        .get(validateAdmin, app.api.receivement.getById)
-        .delete(validateAdmin, app.api.receivement.remove)
+    app.route("stock/:id")
+        .get(validateAdmin, app.api.stock.getById)
+        .delete(validateAdmin, app.api.stock.remove)
+        .put(validateAdmin, app.api.stock.put)  
 }
