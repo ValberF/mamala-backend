@@ -9,6 +9,7 @@ exports.up = function (knex) {
     table.string("donor_naturalness").nullable();
     table.string("donor_phoneNumber").notNull();
     table.string("donor_grandmother").notNull();
+    table.date("donor_birthDate").notNull();
   });
 };
     

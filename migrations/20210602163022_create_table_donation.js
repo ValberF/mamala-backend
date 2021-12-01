@@ -5,7 +5,7 @@ exports.up = function (knex) {
     table.foreign("donor_id").references("donor_id").inTable("donor").onDelete("CASCADE");
     table.integer("donation_amount").notNull();
     table.date("donation_date").notNull();
-    table.boolean("donation_status").notNull();
+    table.string("donation_status").notNull();
   });
 }; 
     

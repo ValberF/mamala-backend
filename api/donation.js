@@ -42,12 +42,12 @@ module.exports = app => {
 
   const post = async (req, res) => {
     try {
-      const { donation_amount, donation_date } = req.body
-      const donation_status = false
+      const { donation_amount, donation_date, donor_id, donation_status } = req.body
       const insertdonation = await knex("donation").insert({
         donation_status,
         donation_amount,
-        donation_date
+        donation_date,
+        donor_id
       });
       return res.status(201).json({ message: "Nova doação cadastrada", donation: insertdonation })
     } catch (msg) {
